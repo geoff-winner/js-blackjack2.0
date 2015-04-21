@@ -1,0 +1,102 @@
+#result {
+  display: none;
+}
+
+.you-win {
+  display: none;
+}
+
+h1 {
+  color: blue;
+}
+
+.deal {
+  display: none;
+}
+
+.2 {
+  display: none;
+}
+
+.hit {
+  display: none;
+}
+
+.hit-again {
+  display: none;
+}
+
+.dealer-hit {
+  display: none;
+}
+
+.dealer-hit2 {
+  display: none;
+}
+
+body {
+    background-image: url("imgs/Table.png");
+}
+
+.blackjack {
+    border-radius: 25px;
+    width: 500px;
+    height: 200px;
+}
+
+.player1_hand {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+}
+.player1_hand2 {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+}
+.player1_hand3 {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+}
+.player1_hand4 {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+}
+.dealer_hand {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+}
+.dealer_hand2 {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+}
+.dealer_hand3 {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+}
+.dealer_hand4 {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+}
+
+.container {
+  text-align: center;
+}
+
+.buttongroup {
+text-align: center;
+}
+
+#player {
+  float: left;
+}
+
+#dealer {
+  float: right;
+}
