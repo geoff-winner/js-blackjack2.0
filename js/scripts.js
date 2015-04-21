@@ -191,7 +191,7 @@ $(document).ready(function() {
       $('.stand').hide();
       $(".dealer-hit").hide();
       $(".you-win").text("You Win");
-  } else if (dealer_score > player1_score && dealer_score < 21) {
+  } else if (dealer_score > player1_score && dealer_score < 21 && dealerscore > 17) {
       $('.hit').hide();
       $(".hit-again").hide();
       $('.stand').hide();
@@ -237,6 +237,10 @@ $(document).ready(function() {
       $('.you-win').show();
       $(".dealer-hit2").hide();
       $('.you-win').text("Push");
+    } else if (dealer_score >= 17 && dealer_score < player1_score) {
+        $(".you-lose").text("Dealer Wins");
+        $(".dealer-hit2").hide();
+        $(".you-win").text("You Win!!");
     }
   });
 
