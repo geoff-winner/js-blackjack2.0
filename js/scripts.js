@@ -70,7 +70,6 @@ $(document).ready(function() {
     player1_score = player1_hand[0].rank + player1_hand2[0].rank + player1_score;
     dealer_score = dealer_hand[0].rank + dealer_score;
 
-
     $(".player1_hand").attr("src", player1_hand[0].img);
     $(".player1_hand").show();
     $(".player1_hand2").attr("src", player1_hand2[0].img);
@@ -89,10 +88,13 @@ $(document).ready(function() {
 
     if (player1_score === 21) {
       $(".you-win").show();
-      $(".you-win").text("You-Win!!!!");
+      $(".you-win").text("You Win");
       $('.hit').hide();
       $(".hit-again").hide();
       $('.stand').hide();
+    } else if (dealer_score === player1_score) {
+      $('.you-win').show();
+      $('.you-win').text("Push");
     }
   });
 
@@ -100,7 +102,6 @@ $(document).ready(function() {
     var player1_hand3 = shuffled_deck.splice(0, 1);
 
     player1_score = player1_hand3[0].rank + player1_score;
-
 
     $(".player1_hand3").attr("src", player1_hand3[0].img);
     $(".player1_score").text(player1_score).val();
@@ -115,20 +116,24 @@ $(document).ready(function() {
 
     if (player1_score === 21) {
       $(".you-win").show();
-      $(".you-win").text("You-Win!!!!");
+      $(".you-win").text("You Win");
       $('.hit').hide();
       $(".hit-again").hide();
       $('.stand').hide();
+    } else if (player1_score > 21) {
+      $(".you-lose").text("You Bust");
+      $('.stand').hide();
+      $('.hit-again').hide();
+    } else if (dealer_score === player1_score) {
+      $('.you-win').show();
+      $('.you-win').text("Push");
     }
-
   });
 
   $('.hit-again').click(function(event) {
     var player1_hand4 = shuffled_deck.splice(0, 1);
 
     player1_score = player1_hand4[0].rank + player1_score;
-
-
 
     $(".player1_hand4").attr("src", player1_hand4[0].img);
     $(".player1_score").text(player1_score).val();
@@ -139,17 +144,21 @@ $(document).ready(function() {
     $(".dealer-hit2").hide();
 
     event.preventDefault();
+
     if (player1_score === 21) {
       $(".you-win").show();
       $(".you-win").text("You-Win!!!!");
       $('.hit').hide();
       $(".hit-again").hide();
       $('.stand').hide();
+    } else if (player1_score > 21) {
+      $(".stand").hide();
+      $(".you-lose").text("You Bust");
+    } else if (dealer_score === player1_score) {
+      $('.you-win').show();
+      $('.you-win').text("Push");
     }
   });
-
-
-
 
 // Dealer stuff
   $(".stand").click(function() {
@@ -171,17 +180,27 @@ $(document).ready(function() {
 
     event.preventDefault();
     if (dealer_score === 21 && dealer_score > player1_score) {
-      $(".you-win").show();
-      $(".you-lose").text("Dealer Wins");
       $('.hit').hide();
       $(".hit-again").hide();
       $('.stand').hide();
-  } else if (dealer_score >= 17 && dealer_score >= player1_score) {
-      $(".dealer-hit2").hide();
       $(".dealer-hit").hide();
       $(".you-lose").text("Dealer Wins");
-
-
+  } else if (dealer_score === 17 && player1_score > dealer_score) {
+      $('.hit').hide();
+      $(".hit-again").hide();
+      $('.stand').hide();
+      $(".dealer-hit").hide();
+      $(".you-win").text("You Win");
+  } else if (dealer_score > player1_score && dealer_score < 21) {
+      $('.hit').hide();
+      $(".hit-again").hide();
+      $('.stand').hide();
+      $(".dealer-hit").hide();
+      $(".you-lose").text("Dealer Wins");
+  } else if (dealer_score === player1_score) {
+    $('.you-win').show();
+    $(".dealer-hit").hide();
+    $('.you-win').text("Push");
   }
   });
 
@@ -201,16 +220,23 @@ $(document).ready(function() {
     event.preventDefault();
     if (dealer_score === 21) {
       $(".you-win").show();
-      $(".you-lose").text("Dealer Wins");
       $('.hit').hide();
       $(".hit-again").hide();
+      $(".you-lose").text("Dealer Wins");
+    } else if (dealer_score > 21) {
+        $(".dealer-hit2").hide();
+        $('.you-win').show();
+        $(".you-win").text("Dealer Busts, you win!");
+    } else if (dealer_score < player1_score) {
       $('.stand').hide();
-    } else if (dealer_score >= 17 && dealer_score >= player1_score) {
+    } else if (dealer_score >= 17 && dealer_score > player1_score) {
         $(".you-lose").text("Dealer Wins");
         $(".dealer-hit2").hide();
-    } else {
-        $(".dealer-bust").text("Dealer Busts, you win!");
-        $(".dealer-hit2").hide();
+        $(".you-win").text("You Win!!");
+    } else if (dealer_score === player1_score) {
+      $('.you-win').show();
+      $(".dealer-hit2").hide();
+      $('.you-win').text("Push");
     }
   });
 
@@ -228,12 +254,21 @@ $(document).ready(function() {
     $('.deal').hide();
 
     event.preventDefault();
+
     if (dealer_score === 21 && dealer_score > player1_score ) {
-      $(".you-win").show();
       $(".you-lose").text("Dealer Wins");
       $('.hit').hide();
       $(".hit-again").hide();
       $('.stand').hide();
+    } else if (dealer_score > 21) {
+      $(".you-lose").text("Dealer Busts, you win!");
+      $(".dealer-hit2").hide();
+    } else if (player1_score > dealer_score) {
+      $(".you-win").text("You Win");
+    } else if (dealer_score === player1_score) {
+      $('.you-win').show();
+      $(".dealer-hit2").hide();
+      $('.you-win').text("Push");
     }
   });
 
