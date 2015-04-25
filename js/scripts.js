@@ -55,7 +55,7 @@ var cards = [
 var shuffled_deck;
 var player1_score = 0;
 var dealer_score = 0;
-
+var dealer_hand2;
 $(document).ready(function() {
 
   $('.stand').hide();
@@ -66,6 +66,7 @@ $(document).ready(function() {
     var player1_hand = shuffled_deck.splice(0, 1);
     var player1_hand2 = shuffled_deck.splice(0, 1);
     var dealer_hand = shuffled_deck.splice(0, 1);
+    dealer_hand2 = shuffled_deck.splice(0, 1);
 
     player1_score = player1_hand[0].rank + player1_hand2[0].rank + player1_score;
     dealer_score = dealer_hand[0].rank + dealer_score;
@@ -75,6 +76,7 @@ $(document).ready(function() {
     $(".player1_hand2").attr("src", player1_hand2[0].img);
     $(".player1_hand2").show();
     $(".dealer_hand").attr("src", dealer_hand[0].img);
+    $(".dealer_hand2").attr("src", "css/imgs/card-back.jpg");
     $(".player1_score").text(player1_score).val();
     $(".dealer_score").text(dealer_score).val();
     $(".deal").hide();
@@ -169,9 +171,8 @@ $(document).ready(function() {
     }
   });
 
-// Dealer stuff
+                                                    // Dealer stuff
   $(".stand").click(function() {
-    var dealer_hand2 = shuffled_deck.splice(0, 1);
 
     dealer_score = dealer_hand2[0].rank + dealer_score;
 
