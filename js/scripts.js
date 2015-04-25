@@ -189,7 +189,14 @@ $(document).ready(function() {
     $(".dealer-hit").show();
 
     event.preventDefault();
-    if (dealer_score === 21 && dealer_score > player1_score) {
+    if (dealer_score > player1_score && dealer_score > 16) {
+      $('.hit').hide();
+      $(".hit-again").hide();
+      $('.stand').hide();
+      $(".dealer-hit").hide();
+      $(".you-lose").show();
+      $(".you-lose").text("Dealer Wins");
+    } else if (dealer_score === 21 && dealer_score > player1_score) {
       $('.hit').hide();
       $(".hit-again").hide();
       $('.stand').hide();
@@ -261,8 +268,8 @@ $(document).ready(function() {
       $(".dealer-hit2").hide();
       $('.you-win').text("Push");
     } else if (dealer_score >= 17 && dealer_score < player1_score) {
-      $(".you-lose").text("Dealer Wins");
       $(".dealer-hit2").hide();
+      $(".you-win").show();
       $(".you-win").text("You Win!!");
     } else if (dealer_score < player1_score && dealer_score > 16) {
       $(".dealer-hit2").hide();
