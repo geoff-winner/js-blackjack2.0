@@ -124,7 +124,7 @@ $(document).ready(function() {
       $(".you-lose").text("You Bust");
       $('.stand').hide();
       $('.hit-again').hide();
-    } else if (dealer_score === player1_score) {
+    } else if (dealer_score === player1_score && dealer_score >= 17) {
       $('.you-win').show();
       $('.you-win').text("Push");
     }
@@ -197,7 +197,7 @@ $(document).ready(function() {
       $('.stand').hide();
       $(".dealer-hit").hide();
       $(".you-lose").text("Dealer Wins");
-  } else if (dealer_score === player1_score) {
+  } else if (dealer_score === player1_score && dealer_score >= 17) {
     $('.you-win').show();
     $(".dealer-hit").hide();
     $('.you-win').text("Push");
@@ -233,14 +233,14 @@ $(document).ready(function() {
         $(".you-lose").text("Dealer Wins");
         $(".dealer-hit2").hide();
         $(".you-win").text("You Win!!");
-    } else if (dealer_score === player1_score) {
+    } else if (dealer_score === player1_score && dealer_score >= 17) {
       $('.you-win').show();
       $(".dealer-hit2").hide();
       $('.you-win').text("Push");
     } else if (dealer_score >= 17 && dealer_score < player1_score) {
-        $(".you-lose").text("Dealer Wins");
-        $(".dealer-hit2").hide();
-        $(".you-win").text("You Win!!");
+      $(".you-lose").text("Dealer Wins");
+      $(".dealer-hit2").hide();
+      $(".you-win").text("You Win!!");
     }
   });
 
