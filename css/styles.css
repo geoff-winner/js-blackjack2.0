@@ -65,6 +65,11 @@ body {
     height: 150px;
     border-radius: 8px;
 }
+.player1_hand5 {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+}
 .dealer_hand {
     width: 100px;
     height: 150px;
@@ -81,6 +86,11 @@ body {
     border-radius: 8px;
 }
 .dealer_hand4 {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+}
+.dealer_hand5 {
     width: 100px;
     height: 150px;
     border-radius: 8px;

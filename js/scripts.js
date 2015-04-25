@@ -92,9 +92,18 @@ $(document).ready(function() {
       $('.hit').hide();
       $(".hit-again").hide();
       $('.stand').hide();
-    } else if (dealer_score === player1_score) {
+    } else if (dealer_score === 21) {
+      $('.you-win').show();
+      $('.you-win').text("You lose.");
+      $('.hit').hide();
+      $(".hit-again").hide();
+      $('.stand').hide();
+    } else if (player1_score === 21 && dealer_score === 21 ) {
       $('.you-win').show();
       $('.you-win').text("Push");
+      $('.hit').hide();
+      $(".hit-again").hide();
+      $('.stand').hide();
     }
   });
 
@@ -191,16 +200,29 @@ $(document).ready(function() {
       $('.stand').hide();
       $(".dealer-hit").hide();
       $(".you-win").text("You Win");
-  } else if (dealer_score > player1_score && dealer_score < 21 && dealerscore > 17) {
+  } else if (dealer_score > player1_score && dealer_score < 21 && dealerscore >= 17) {
+      alert("dealer should win");
       $('.hit').hide();
       $(".hit-again").hide();
       $('.stand').hide();
       $(".dealer-hit").hide();
+      $('.you-lose').show();
       $(".you-lose").text("Dealer Wins");
   } else if (dealer_score === player1_score && dealer_score >= 17) {
     $('.you-win').show();
     $(".dealer-hit").hide();
     $('.you-win').text("Push");
+  } else if (dealer_score > player1_score && dealer_score >= 17) {
+    $(".dealer-hit").hide();
+    $(".you-lose").text("Dealer Wins");
+  } else if (dealer_score < player1_score && dealer_score >=17) {
+    $(".dealer-hit").hide();
+    $('.you-win').show();
+    $('.you-win').text("You Win");
+  } else if (dealer_score > player1_score && dealer_score > 16) {
+    $('.you-win').show();
+    $('.you-win').text("You lose");
+    $(".dealer-hit").hide();
   }
   });
 
@@ -241,6 +263,12 @@ $(document).ready(function() {
       $(".you-lose").text("Dealer Wins");
       $(".dealer-hit2").hide();
       $(".you-win").text("You Win!!");
+    } else if (dealer_score < player1_score && dealer_score > 16) {
+      $(".dealer-hit2").hide();
+      $(".you-win").text("Dealer busts, you win!");
+    } else if (dealer_score < player1_score && dealer_score >= 17) {
+      $(".dealer-hit2").hide();
+      $(".you-win").text("You win!");
     }
   });
 
