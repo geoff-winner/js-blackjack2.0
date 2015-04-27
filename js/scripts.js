@@ -306,12 +306,17 @@ $(document).ready(function() {
       $(".you-lose").text("Dealer Busts, you win!");
       $(".dealer-hit2").hide();
     } else if (player1_score > dealer_score) {
-      alert("line 309 works");
+      $('.you-win').show();
       $(".you-win").text("You Win");
+      $('.hit-again').hide();
     } else if (dealer_score === player1_score) {
       $('.you-win').show();
       $(".dealer-hit2").hide();
       $('.you-win').text("Push");
+    } else if (dealer_score > player1_score) {
+      $('.you-win').show();
+      $(".dealer-hit2").hide();
+      $('.you-win').text("You Lose");
     }
   });
 
