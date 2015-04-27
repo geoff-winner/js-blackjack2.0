@@ -202,11 +202,12 @@ $(document).ready(function() {
       $('.stand').hide();
       $(".dealer-hit").hide();
       $(".you-lose").text("Dealer Wins");
-  } else if (dealer_score === 17 && player1_score > dealer_score) {
+  } else if (dealer_score >= 17 && player1_score > dealer_score) {
       $('.hit').hide();
       $(".hit-again").hide();
       $('.stand').hide();
       $(".dealer-hit").hide();
+      $(".you-win").show();
       $(".you-win").text("You Win");
   } else if (dealer_score > player1_score && dealer_score < 21 && dealerscore >= 17) {
       alert("dealer should win");
@@ -271,11 +272,11 @@ $(document).ready(function() {
       alert("trigger");
       $(".dealer-hit2").hide();
       $(".you-win").show();
-      $(".you-win").text("You Win!!");
+      $(".you-win").text("You Win!");
     } else if (dealer_score < player1_score && dealer_score > 16) {
       $(".dealer-hit2").hide();
-      $(".you-win").text("Dealer busts, you win!");
-    } else if (dealer_score < player1_score && dealer_score >= 17) {
+      $(".you-win").text("You Win!");
+    } else if (dealer_score < player1_score && dealer_score === 17) {
       $(".dealer-hit2").hide();
       $(".you-win").text("You win!");
     }
@@ -305,6 +306,7 @@ $(document).ready(function() {
       $(".you-lose").text("Dealer Busts, you win!");
       $(".dealer-hit2").hide();
     } else if (player1_score > dealer_score) {
+      alert("line 309 works");
       $(".you-win").text("You Win");
     } else if (dealer_score === player1_score) {
       $('.you-win').show();
